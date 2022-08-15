@@ -1,0 +1,25 @@
+{
+  "name": "cicdtestapp",
+  "version": "1.0.0",
+  "description": "just for testing ci & cd pipelines with jenkins,github & heroku deployment.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "CIDI",
+    "pipelines",
+    "with",
+    "jenkins",
+    "github",
+    "&",
+    "heroku"
+  ],
+  "author": "ajay dua",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "path": "^0.12.7"
+  }
+}
