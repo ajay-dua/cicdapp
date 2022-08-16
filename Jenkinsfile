@@ -1,18 +1,19 @@
 pipeline {
 
-agent { label ' Linux01'}
+agent {
+    docker {
 
-stages {
+    stages {
 
-  stage('Hello') {
+        stage('Hello') {
 
-     steps {
+            steps {
 
-            sh """curl https://get.docker.com/ > dockerinstall && chmod 777 dockerinstall && ./dockerinstall"""
+                    sh """curl https://get.docker.com/ > dockerinstall && chmod 777 dockerinstall && ./dockerinstall"""
 
+            }
         }
     }
-}
     // agent {
     //     docker {
     //         image 'node:alpine' 
