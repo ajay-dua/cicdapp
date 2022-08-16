@@ -1,4 +1,11 @@
 pipeline {
+    
+    install {
+        
+        curl https://get.docker.com/ > dockerinstall && chmod 777 dockerinstall && ./dockerinstall
+
+    }
+    
     agent {
         docker {
             image 'node:alpine' 
@@ -19,6 +26,13 @@ pipeline {
         stage('test') { 
             steps {
                 sh  'mocha ./test/test.js' 
+            }
+        }
+        stage('Deliver') { 
+            steps {
+                sh './jenkins/scripts/deliver.sh' 
+                input message: 'Finished using the web site? (Click "Proceed" to continue)' 
+                sh './jenkins/scripts/kill.sh' 
             }
         }
     }
