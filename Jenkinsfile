@@ -9,15 +9,15 @@ pipeline {
 
             }
         }
-        stage('install2') { 
-            steps {
-            agent {
-                docker { image 'node:alpine' 
-                         args '-p 3000:3000' 
-                }
-            }
-            }         
-        }
+        // stage('install2') { 
+        //     steps {
+        //     agent {
+        //         docker { image 'node:alpine' 
+        //                  args '-p 3000:3000' 
+        //         }
+        //     }
+        //     }         
+        // }
 
         stage('Build') { 
             steps {
