@@ -3,13 +3,13 @@ pipeline {
     agent any
     stages {
 
-        stage('install') { 
-            steps {
-                        sh """curl https://get.docker.com/ > dockerinstall && chmod 777 dockerinstall &&  ./dockerinstall -y"""
+        // stage('install') { 
+        //     steps {
+        //                 sh """curl https://get.docker.com/ > dockerinstall && chmod 777 dockerinstall &&  ./dockerinstall -y"""
                         
 
-            }
-        }
+        //     }
+        // }
         // stage('install2') { 
         //     steps {
         //     agent {
