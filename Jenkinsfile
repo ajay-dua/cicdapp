@@ -1,19 +1,28 @@
 pipeline {
 
-    agent {
-        docker {
-            image 'node:alpine' 
-            args '-p 3000:3000' 
-        }
-    }
+    agent none
+    
     stages {
 
-        stage('install') { 
+        stage('install1') { 
             steps {
                         sh """curl https://get.docker.com/ > dockerinstall && chmod 777 dockerinstall && ./dockerinstall"""
 
             }
         }
+        stage('install2') { 
+            agent {
+                docker {
+                    steps{
+                         image 'node:alpine' 
+                         args '-p 3000:3000' 
+                    }
+
+                }
+            }
+            
+        }
+
         stage('Build') { 
             steps {
                 sh 'npm install' 
