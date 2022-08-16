@@ -11,5 +11,15 @@ pipeline {
                 sh 'npm install' 
             }
         }
+        stage('run') { 
+            steps {
+                sh 'node src/index.js' 
+            }
+        }
+        stage('test') { 
+            steps {
+                sh  'mocha ./test/test.js' 
+            }
+        }
     }
 }
