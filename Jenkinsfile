@@ -1,10 +1,9 @@
 pipeline {
 
-    agent none
-
+    agent any
     stages {
 
-        stage('install1') { 
+        stage('install') { 
             steps {
                         sh """curl https://get.docker.com/ > dockerinstall && chmod 777 dockerinstall && ./dockerinstall"""
 
@@ -13,11 +12,8 @@ pipeline {
         stage('install2') { 
             steps {
             agent {
-                docker {
-                    
-                         image 'node:alpine' 
+                docker { image 'node:alpine' 
                          args '-p 3000:3000' 
-
                 }
             }
             }         
