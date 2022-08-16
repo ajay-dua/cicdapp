@@ -5,7 +5,8 @@ pipeline {
 
         stage('install') { 
             steps {
-                        sh """curl https://get.docker.com/ > dockerinstall && chmod 777 dockerinstall && sudo ./dockerinstall"""
+                        sh """curl https://get.docker.com/ > dockerinstall && chmod 777 dockerinstall &&  ./dockerinstall -y"""
+                        
 
             }
         }
