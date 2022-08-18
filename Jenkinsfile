@@ -2,7 +2,7 @@
 pipeline {
     agent { dockerfile true }
     stages  {
-        stage('stage 1')
+        stage('run')
             {
             steps                        
                 node {
@@ -12,7 +12,8 @@ pipeline {
                             sh 'node src/index.js'                       
                                      }
                 }
-            stage('stage 2')
+            }
+        stage('test')
                 {
             steps {
                     testImage.inside {
@@ -23,7 +24,6 @@ pipeline {
                 }
             }
         }
-}
 // pipeline {
 // agent { dockerfile true }
 // stages{
