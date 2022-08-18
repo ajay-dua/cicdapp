@@ -1,26 +1,29 @@
 
-
-
 pipeline {
     agent { dockerfile true }
-stages  {
-        stage('run')
+    stages  {
+        stage('stage 1')
             {
-            node {
+            steps                        
+                node {
                 checkout scm
                 def testImage = docker.build("test-image", "./dockerfile")            
                     testImage.inside {  
                             sh 'node src/index.js'                       
                                      }
-                }                     
-        stage('test') {
+                }
+            stage('stage 2')
+                {
+            steps {
                     testImage.inside {
                         sh  'mocha ./test/test.js' 
                                      }
-                            }
+                   }
+                     
                 }
+            }
         }
-    }
+}
 // pipeline {
 // agent { dockerfile true }
 // stages{
