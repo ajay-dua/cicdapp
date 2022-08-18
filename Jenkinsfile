@@ -6,7 +6,7 @@ pipeline {
             filename 'dockerfile'  
             args '-v /tmp:/tmp --tag cicdtestapp:v1'
             } 
-    
+        }
     stages  {        
         stage('ping test') {
         steps{
@@ -24,7 +24,6 @@ pipeline {
              echo "run test passes"
         }
         } 
-    }
     }
 }
 // pipeline {
