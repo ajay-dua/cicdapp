@@ -23,12 +23,12 @@ node {
     def testImage = docker.build("test-image", "./dockerfile") 
 
     testImage.inside {
-       // stage('run') {
+        stage('run') {
         sh 'node src/index.js'
-       // }
-       // stage('test') {
+        }
+        stage('test') {
         sh  'mocha ./test/test.js' 
-       // }
+        }
     }
 }
 }
