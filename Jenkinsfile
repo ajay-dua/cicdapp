@@ -2,10 +2,10 @@
 pipeline {
     agent { dockerfile true }
     stages  {        
-        stage('getContainerId') {
+        stage('ping test') {
         steps{
-            sh "docker ps"
-            echo "docker ps"
+            curl "localhost:3000/test"
+            echo "ping test"
         }
         }
         stage('start Dockerimage and run server') {
