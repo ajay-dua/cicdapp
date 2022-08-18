@@ -1,7 +1,6 @@
 
 pipeline {
-    agent { dockerfile {
-            label 'cicdtestapp'
+    agent { dockerfile true
             additionalBuildArgs  '--build-arg version=1.0 --tag cicdtestapp:v1'
             args '-v /tmp:/tmp'
             } 
