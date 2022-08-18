@@ -4,13 +4,14 @@ pipeline {
     stages  {
         stage('run')
             {
-            steps                        
+            steps {                       
                 node {
                 checkout scm
                 def testImage = docker.build("test-image", "./dockerfile")            
                     testImage.inside {  
                             sh 'node src/index.js'                       
                                      }
+                }
                 }
             }
         stage('test')
