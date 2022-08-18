@@ -1,8 +1,10 @@
 
 pipeline {
-    agent { dockerfile true
-            additionalBuildArgs  '--build-arg version=1.0 --tag cicdtestapp:v1'
-            args '-v /tmp:/tmp'
+    agent { 
+        dockerfile
+            {
+            filename 'dockerfile'  
+            args '-v /tmp:/tmp --tag cicdtestapp:v1'
             } 
     
     stages  {        
@@ -22,6 +24,7 @@ pipeline {
              echo "run test passes"
         }
         } 
+    }
     }
 }
 // pipeline {
