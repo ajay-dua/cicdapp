@@ -4,24 +4,24 @@ pipeline {
         dockerfile
             {
             filename 'dockerfile'  
-            args '-v /tmp:/tmp --tag cicdtestapp:v1'
+           
             } 
         }
     stages  {        
         stage('ping test') {
         steps{
-            curl "localhost:3000/test"
-            echo "ping test"
+            sh 'echo  ${c.id}'
+            sh 'echo  $envVar'
         }
         }
         stage('start Dockerimage and run server') {
         steps{
-             echo "start Dockerimage and run server passes"
+             sh 'echo start Dockerimage and run server passes'
         }
         }
         stage('run test') {
         steps{
-             echo "run test passes"
+             sh 'echo run test passes'
         }
         } 
     }
