@@ -3,18 +3,18 @@ pipeline {
     agent any 
     stages  { 
     stage('build') {
-        steps{
-        agent { 
+                agent { 
             dockerfile
             {
             filename 'dockerfile'         
             } 
-        }    
+        }
+        steps{
+             sh 'echo  $envVar'
         }        
         }      
         stage('run newly build image') {
-        steps{           
-            sh 'echo  $envVar'
+        steps{                      
             sh 'docker ps'
         }
         }
