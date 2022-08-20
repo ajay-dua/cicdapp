@@ -11,11 +11,12 @@ pipeline {
         stage('ping test') {
         steps{           
             sh 'echo  $envVar'
+            sh 'echo  pwd'
         }
         }
         stage('start Dockerimage and run server') {
         steps{
-             sh 'docker ps'
+             sh 'node /src/index.js'
         }
         }
         stage('run test') {
