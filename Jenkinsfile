@@ -13,9 +13,10 @@ pipeline {
              sh 'echo  $envVar'
         }        
         }      
-        stage('run newly build image') {
+        stage('run newly build image id') {
         steps{                      
-            sh 'docker ps'
+            IMG_ID = sh 'docker images --format='{{.ID}}' | head -1'
+            sh 'echo $IMG_ID'
         }
         }
         // stage('start Dockerimage and run server') {
