@@ -3,13 +3,14 @@ pipeline {
     agent any 
     stages  { 
     stage('build') {
+        steps{
         agent { 
             dockerfile
             {
             filename 'dockerfile'         
             } 
         }    
-        
+        }        
         }      
         stage('run newly build image') {
         steps{           
