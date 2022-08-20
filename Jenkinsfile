@@ -14,9 +14,13 @@ pipeline {
         }        
         }      
         stage('run newly build image id') {
-        steps{                      
+        steps{   
+               step{               
             IMG_ID = sh '''docker images --format='{{.ID}}' | head -1'''
+               }
+               step{
             sh 'echo $IMG_ID'
+            }
         }
         }
         // stage('start Dockerimage and run server') {
