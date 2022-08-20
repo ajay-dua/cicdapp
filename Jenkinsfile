@@ -15,7 +15,7 @@ pipeline {
         }
         stage('start Dockerimage and run server') {
         steps{
-             sh 'echo start Dockerimage and run server passes'
+             sh 'docker ps'
         }
         }
         stage('run test') {
