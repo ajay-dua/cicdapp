@@ -9,8 +9,7 @@ pipeline {
         }
     stages  {        
         stage('ping test') {
-        steps{
-            sh 'echo  ${c.id}'
+        steps{           
             sh 'echo  $envVar'
         }
         }
