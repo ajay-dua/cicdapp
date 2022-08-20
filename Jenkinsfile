@@ -1,29 +1,32 @@
 
 pipeline {
-    agent { 
-        dockerfile
+    agent any 
+    stages  { 
+    stage('build') {
+        agent { 
+            dockerfile
             {
-            filename 'dockerfile'  
-           
+            filename 'dockerfile'         
             } 
-        }
-    stages  {        
-        stage('ping test') {
+        }    
+        
+        }      
+        stage('run newly build image') {
         steps{           
             sh 'echo  $envVar'
-            sh 'echo  pwd'
+            sh 'docker ps'
         }
         }
-        stage('start Dockerimage and run server') {
-        steps{
-             sh 'node /src/index.js'
-        }
-        }
-        stage('run test') {
-        steps{
-             sh 'echo run test passes'
-        }
-        } 
+        // stage('start Dockerimage and run server') {
+        // steps{
+        //      //sh 'node /var/jenkins_home/workspace/nodejsbuild/'
+        // }
+        // }
+        // stage('run test') {
+        // steps{
+        //      sh 'echo run test passes'
+        // }
+        // } 
     }
 }
 // pipeline {
