@@ -7,7 +7,8 @@ pipeline {
                 agent { 
             dockerfile
             {
-            filename 'dockerfile'         
+            filename 'dockerfile'
+            additionalBuildArgs '-t cicdtestapp'         
             } 
         }
         steps{
