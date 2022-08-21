@@ -18,7 +18,7 @@ pipeline {
         steps{         
                 script {
                   imgID  =   sh "docker images --format='{{.ID}}' |  head -1"    
-                  echo '$imgID'
+                  sh 'echo $imgID'
                 }
         
         }
