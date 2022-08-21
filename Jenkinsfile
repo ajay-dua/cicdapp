@@ -17,10 +17,10 @@ pipeline {
         stage('run newly build image id') {
         steps{         
                 script {
-                  imgID  =   sh  (script: sh "docker images --format='{{.ID}}' | head -1",returnStdout: true)     
-                   sh 'echo $imgID'
+                  imgID  =   sh  (script: "docker images --format='{{.ID}}' | head -2",returnStdout: true)     
+                  echo '$imgID'
                 }
-
+        
         }
         }
         // stage('start Dockerimage and run server') {
