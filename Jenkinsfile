@@ -3,11 +3,19 @@
 pipeline {
     agent any 
     stages  { 
+    stage('clean') {
+                agent { 
+            docker
+            {            
+            sh 'docker rmi -t cicdtestapp:v1'         
+            } 
+        }
     stage('build') {
                 agent { 
             dockerfile
             {
             //filename 'dockerfile'
+            
             additionalBuildArgs '-t cicdtestapp:v1'         
             } 
         }
@@ -19,7 +27,8 @@ pipeline {
         steps{         
                 script {
                     
-                   sh ("docker images --format='{{.ID}}' |  head -1")               
+                   //sh ("docker images --format='{{.ID}}' |  head -1")               
+                   sh ("docker run -t cicdtestapp:v1")               
                 }
         
         }
