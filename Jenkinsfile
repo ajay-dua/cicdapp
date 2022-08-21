@@ -27,16 +27,17 @@ pipeline {
                 script {
                     
                    //sh ("docker images --format='{{.ID}}' |  head -1")               
-                   sh ("docker run -p 3000:3000 -t cicdtestapp:v1")               
+                   sh ("docker run -p 3000:3000 -t cicdtestapp:v1")  
+                               
                 }
         
         }
         }
-        // stage('start Dockerimage and run server') {
-        // steps{
-        //      //sh 'node /var/jenkins_home/workspace/nodejsbuild/'
-        // }
-        // }
+        stage('run test') {
+        steps{
+             sh 'mocha /test/test.js'
+        }
+        }
         // stage('run test') {
         // steps{
         //      sh 'echo run test passes'
