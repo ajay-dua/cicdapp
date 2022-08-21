@@ -1,5 +1,3 @@
-
-
 pipeline {
     agent any 
     stages  { 
@@ -24,12 +22,12 @@ pipeline {
         }      
         stage('run newly build image id') {
         steps{         
-                script {
+                //script {
                     
                    //sh ("docker images --format='{{.ID}}' |  head -1")               
                    sh ("docker run -p 3000:3000 -t cicdtestapp:v1")  
                                
-                }
+                //}
         
         }
         }
