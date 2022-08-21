@@ -3,13 +3,10 @@
 pipeline {
     agent any 
     stages  { 
-    stage('clean') {
-                agent { 
-            docker
+    stage('clean') {            
             {            
             sh 'docker rmi -t cicdtestapp:v1'         
             } 
-        }
         }
     stage('build') {
                 agent { 
