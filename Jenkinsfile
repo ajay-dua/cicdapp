@@ -6,7 +6,7 @@ pipeline {
     stage('clean')             
             {
             steps{            
-            sh 'docker rmi -t cicdtestapp:v1'         
+            sh 'docker rmi cicdtestapp:v1'         
             }
             }     
     stage('build') {
