@@ -19,7 +19,7 @@ pipeline {
         steps{         
                 script {
                     
-                  sh "docker run -t " + sh ("docker images --format='{{.ID}}' |  head -1")               
+                   sh ("docker images --format='{{.ID}}' |  head -1")               
                 }
         
         }
