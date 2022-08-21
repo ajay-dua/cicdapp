@@ -1,4 +1,6 @@
 
+#!/usr/bin/env groovy
+
 pipeline {
     agent any 
     stages  { 
@@ -16,7 +18,7 @@ pipeline {
         stage('run newly build image id') {
         steps{         
 
-                    step {IMG_ID = sh(returnStdout: true, script:"docker images --format='{{.ID}}' | head -1")}       
+                    step {IMG_ID = sh(returnStdout: true, script:"docker images --format={{.ID}} | head -1")}       
                     step {sh 'echo $IMG_ID'}
  
         }
