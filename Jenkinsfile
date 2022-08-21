@@ -17,7 +17,7 @@ pipeline {
         stage('run newly build image id') {
         steps{         
                 script {
-                  envVar  =  sh ("docker images --format='{{.ID}}' |  head -1").trim()   
+                  envVar  =  sh ("docker images --format='{{.ID}}' |  head -1")   
                   sh 'echo $envVar'
                 }
         
