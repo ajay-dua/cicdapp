@@ -17,9 +17,9 @@ pipeline {
         stage('run newly build image id') {
         steps{         
                 script {
-                
-                    sh ("echo docker images --format='{{.ID}}' | head -1")     
-            
+                   
+                   'imgID' : sh ("echo docker images --format='{{.ID}}' | head -1",returnStdout: true)     
+                   sh 'echo $imgID'
                 }
  
         }
