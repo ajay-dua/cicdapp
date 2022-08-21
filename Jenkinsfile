@@ -10,6 +10,7 @@ pipeline {
             sh 'docker rmi -t cicdtestapp:v1'         
             } 
         }
+        }
     stage('build') {
                 agent { 
             dockerfile
@@ -43,7 +44,8 @@ pipeline {
         //      sh 'echo run test passes'
         // }
         // } 
-    }
+    
+}
 }
 // pipeline {
 //     agent { dockerfile true }
