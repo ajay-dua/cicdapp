@@ -11,8 +11,6 @@ pipeline {
                 agent { 
             dockerfile
             {
-            //filename 'dockerfile'
-            
             additionalBuildArgs '-t cicdtestapp:v1'         
             } 
         }
@@ -20,14 +18,9 @@ pipeline {
              sh 'echo  $envVar'
         }        
         }      
-        stage('run newly build image id') {
-        steps{         
-                //script {
-                    
-                   //sh ("docker images --format='{{.ID}}' |  head -1")               
+        stage('launching nodeapp') {
+        steps{                      
                    sh ("docker run -p 3000:3000 -t cicdtestapp:v1")  
-                               
-                //}
         
         }
         }
